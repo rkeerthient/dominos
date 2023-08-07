@@ -139,16 +139,22 @@ export enum C_activeInAnswers {
 	NO = "No",
 }
 
-export interface EntityReference {
-	entityId: string,
-	name: string,
-}
-
 export enum LinkType {
 	OTHER = "Other",
 	URL = "URL",
 	PHONE = "Phone",
 	EMAIL = "Email",
+}
+
+export interface C_fourthCTA {
+	label?: string,
+	linkType?: LinkType,
+	link?: string,
+}
+
+export interface EntityReference {
+	entityId: string,
+	name: string,
 }
 
 export interface C_primaryCTA {
@@ -158,6 +164,12 @@ export interface C_primaryCTA {
 }
 
 export interface C_secondaryCTA {
+	label?: string,
+	linkType?: LinkType,
+	link?: string,
+}
+
+export interface C_tertiaryCTA {
 	label?: string,
 	linkType?: LinkType,
 	link?: string,
@@ -386,12 +398,14 @@ export default interface Location {
 	cityCoordinate?: Coordinate,
 	closed?: boolean,
 	c_activeInAnswers?: C_activeInAnswers,
+	c_fourthCTA?: C_fourthCTA,
 	c_locationJobs?: EntityReference[],
 	c_nearbyStores?: EntityReference[],
 	c_primaryCTA?: C_primaryCTA,
 	c_relatedFAQs?: EntityReference[],
 	c_secondaryCTA?: C_secondaryCTA,
 	c_storePromos?: EntityReference[],
+	c_tertiaryCTA?: C_tertiaryCTA,
 	displayCoordinate?: Coordinate,
 	dropoffCoordinate?: Coordinate,
 	emails?: string[],

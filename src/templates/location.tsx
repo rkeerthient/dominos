@@ -208,7 +208,7 @@ const Location: Template<TemplateRenderProps> = ({
             <div className="grid grid-cols-3 justify-between w-full gap-8 -mt-48 -mb-24">
               <div className="bg-white shadow leading-10 border h-fit ">
                 <div className=" flex flex-col p-8 justify-between gap-y-2">
-                  <div className="font-semibold text-2xl">{name}</div>
+                  <h1 className="font-semibold text-2xl">{name}</h1>
                   <div className="leading-loose items-baseline flex  gap-2">
                     <MapIcon className="h-4 w-4" />
                     <div className="text-lg flex flex-col gap-1  ">
@@ -249,7 +249,8 @@ const Location: Template<TemplateRenderProps> = ({
                   </div>
                 </div>
               </div>
-              <div className="bg-white shadow border py-8 px-2">
+              <div className="bg-white shadow border py-8 px-3">
+                <div className="font-semibold text-2xl">Hours</div>
                 <div className="flex flex-col gap-4">
                   {accordions.map((accordion, index) => {
                     if (accordion.hours) {
@@ -281,7 +282,7 @@ const Location: Template<TemplateRenderProps> = ({
                                     open
                                       ? "block transition-all duration-300 ease-in-out"
                                       : "hidden"
-                                  } p-4`}
+                                  } `}
                                   key={index}
                                 >
                                   <Hours
@@ -335,13 +336,12 @@ const Location: Template<TemplateRenderProps> = ({
             <div className="text-4xl mx-auto text-center font-bold  mb-8 ">
               Promotions
             </div>
-            <div className=" flex gap-2 ">
+            <div className=" flex gap-4 justify-center">
               {c_storePromos.map((item, index) => (
                 <div
                   key={index}
                   className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 text-white"
                 >
-                  {/* Dark overlay for the background image */}
                   <div className="absolute inset-0 z-10 bg-black opacity-60"></div>
 
                   <Image

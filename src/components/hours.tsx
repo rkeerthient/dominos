@@ -115,7 +115,7 @@ const DayRow = (props: DayRow) => {
   const { dayName, day, isToday } = props;
 
   return (
-    <tr className={isToday ? "bg-gray-200 font-bold" : ""}>
+    <tr className={isToday ? "bg-gray-200 font-medium  w-full" : " w-full"}>
       <td className="capitalize text-left pl-1 pr-4">
         <span>{dayName}</span>
       </td>
@@ -144,7 +144,7 @@ const Hours = (props: Hours) => {
       {/* <div className="text-xl font-semibold mb-4">{title}</div> */}
       <table>
         <thead className="sr-only">
-          <tr>
+          <tr className=" w-full">
             <th>Day of the Week</th>
             <th>Hours</th>
           </tr>
