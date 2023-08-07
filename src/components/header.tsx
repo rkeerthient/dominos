@@ -10,19 +10,19 @@ const links: Link[] = [
   { label: "Home", url: "/en/5923211330787565604" },
   {
     label: "order online",
-    url: "#",
+    url: "/en/5923211330787565604",
   },
   {
     label: "menu",
-    url: "#",
+    url: "/en/5923211330787565604",
   },
   {
     label: "COUPONS",
-    url: "#",
+    url: "/en/5923211330787565604",
   },
   {
     label: "TRACKER",
-    url: "#",
+    url: "/en/5923211330787565604",
   },
   {
     label: "LOCATIONS",
@@ -30,7 +30,7 @@ const links: Link[] = [
   },
   {
     label: "REWARDS",
-    url: "#",
+    url: "/en/5923211330787565604",
   },
 ];
 
