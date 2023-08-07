@@ -39,7 +39,6 @@ const Header = () => {
     <div key={link.label} className="">
       <a
         href={link.url}
-        rel="noreferrer"
         className="uppercase hover:bg-[#00587c] py-4 px-4 hover:cursor-pointer"
       >
         {link.label}
