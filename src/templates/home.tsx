@@ -24,6 +24,7 @@ import "../index.css";
 import Coupon from "../components/Coupon";
 import { useTranslation } from "react-i18next";
 import i18next from "../components/i18n";
+import { useEffect } from "react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -122,10 +123,13 @@ const Home: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-  const { name, c_coupons, c_primaryCTA, c_secondaryCTA, meta } = document;
-  console.log(JSON.stringify(meta));
+  const { t, i18n } = useTranslation();
 
-  const { t } = useTranslation();
+  const { name, c_coupons, c_primaryCTA, c_secondaryCTA, meta } = document;
+  useEffect(() => {
+    const lng = navigator.language;
+    i18n.changeLanguage(lng);
+  }, []);
   return (
     <>
       <PageLayout>
