@@ -95,6 +95,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     title: document.name,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
+    lang: document.meta.locale,
     tags: [
       {
         type: "meta",
@@ -121,7 +122,9 @@ const Home: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-  const { name, c_coupons, c_primaryCTA, c_secondaryCTA } = document;
+  const { name, c_coupons, c_primaryCTA, c_secondaryCTA, meta } = document;
+  console.log(JSON.stringify(meta));
+
   const { t } = useTranslation();
   return (
     <>
