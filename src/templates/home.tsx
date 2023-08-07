@@ -19,28 +19,10 @@ import {
   TemplateRenderProps,
 } from "@yext/pages";
 import * as React from "react";
-import Hours from "../components/hours";
-import List from "../components/list";
 import PageLayout from "../components/page-layout";
-import StaticMap from "../components/static-map";
 import "../index.css";
-import FAQs from "../components/FAQs";
-import ImageCarousel from "../components/ImageCarousel";
-import { Image } from "@yext/pages/components";
-import Carousel from "../components/Carousel";
-import { useState } from "react";
-import { Disclosure } from "@headlessui/react";
-import {
-  ChevronDownIcon,
-  MapIcon,
-  PhoneIcon,
-  ShoppingBagIcon,
-  GlobeAltIcon,
-} from "@heroicons/react/20/solid";
-import { LiaMapMarkerSolid } from "react-icons/lia";
-import { BiFoodMenu } from "react-icons/bi";
-import HoursText from "../components/HoursText";
 import Coupon from "../components/Coupon";
+import { useTranslation } from "react-i18next";
 /**
  * Required when Knowledge Graph data is used for a template.
  */
@@ -138,14 +120,14 @@ const Home: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { name, c_coupons, c_primaryCTA, c_secondaryCTA } = document;
-  console.log(JSON.stringify(c_coupons));
+  const { t, i18n } = useTranslation();
 
   return (
     <>
       <PageLayout>
         <div className="centered-container !max-w-screen-lg">
           <div className="flex justify-center px-8 font-bold uppercase">
-            <div className="text-3xl">Start your order</div>
+            <div className="text-3xl">{t("startOrder")}</div>
             <div className="flex  items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
               {c_primaryCTA.label}
             </div>

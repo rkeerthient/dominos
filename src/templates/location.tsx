@@ -191,7 +191,7 @@ const Location: Template<TemplateRenderProps> = ({
       type: "takeoutHours",
     },
   ];
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleAccordionClick = (index: any) => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
