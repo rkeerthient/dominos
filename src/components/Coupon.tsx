@@ -16,12 +16,16 @@ const Coupon = ({ data }: any) => {
         className="mx-auto px-6 lg:px-8 z-20 space-y-8"
         style={{ filter: "drop-shadow(rgb(0, 0, 0) 0px 0.05em 0.075em)" }}
       >
-        <div className="uppercase bg-white border px-4 py-2 text-lg text-black w-fit">
-          {c_tag}
-        </div>
+        {c_tag && (
+          <div className="uppercase bg-white border px-4 py-2 text-lg text-black w-fit">
+            {c_tag}
+          </div>
+        )}
         <div className="mx-auto max-w-2xl lg:mx-0 w-2/3">
           <h2 className="text-4xl font-bold tracking-tight">{name}</h2>
-          <p className="mt-6 text-lg leading-8">{description}</p>
+          {description && (
+            <p className="mt-6 text-lg leading-8">{description}</p>
+          )}
           <div
             className="text-5xl flex gap-2 items-start"
             style={{
@@ -41,9 +45,11 @@ const Coupon = ({ data }: any) => {
             </span>
           </div>
         </div>
-        <div className="flex items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 ml-auto hover:cursor-pointer hover:bg-red-900 ">
-          {c_primaryCTA.label}
-        </div>
+        {c_primaryCTA && (
+          <div className="flex items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 ml-auto hover:cursor-pointer hover:bg-red-900 ">
+            {c_primaryCTA.label}
+          </div>
+        )}
       </div>
     </div>
   );
