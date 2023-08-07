@@ -96,7 +96,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     title: document.name,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
-    lang: document.meta.locale,
     tags: [
       {
         type: "meta",

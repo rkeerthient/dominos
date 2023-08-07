@@ -42,6 +42,7 @@ import { BiFoodMenu } from "react-icons/bi";
 import HoursText from "../components/HoursText";
 import { useTranslation } from "react-i18next";
 import i18next from "../components/i18n";
+import { useEffect } from "react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -122,8 +123,6 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
  * This can include the title, meta tags, script tags, etc.
  */
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
   document,
 }): HeadConfig => {
   return {
@@ -151,16 +150,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * components any way you'd like as long as it lives in the src folder (though you should not put
  * them in the src/templates folder as this is specific for true template files).
  */
-const Location: Template<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}) => {
+const Location: Template<TemplateRenderProps> = ({ document }) => {
   const {
-    _site,
     name,
     address,
-    openTime,
     hours,
     mainPhone,
     geocodedCoordinate,
@@ -170,7 +163,7 @@ const Location: Template<TemplateRenderProps> = ({
     c_locationJobs,
     c_relatedFAQs,
     c_storePromos,
-    timezone,
+    meta,
     photoGallery,
     c_nearbyStores,
   } = document;
@@ -190,7 +183,9 @@ const Location: Template<TemplateRenderProps> = ({
     },
   ];
   const { t, i18n } = useTranslation();
-
+  useEffect(() => {
+    i18n.changeLanguage(meta.locale);
+  }, []);
   const handleAccordionClick = (index: any) => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -232,25 +227,25 @@ const Location: Template<TemplateRenderProps> = ({
                   <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
                     <div className="flex  items-center border rounded-md bg-red-600 text-white w-full uppercase px-2  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
                       <ShoppingBagIcon className="w-6 h-6 inline-block mr-2" />
-                      Order Now
+                      {t("orderNow")}
                     </div>
                     <div className="flex items-center border rounded-md bg-red-600 text-white w-full uppercase px-2  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
                       <LiaMapMarkerSolid className="w-6 h-6 inline-block mr-2" />
-                      Get Directions
+                      {t("getDirections")}
                     </div>
                     <div className="flex items-center border rounded-md bg-red-600 text-white w-full uppercase px-2  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
                       <BiFoodMenu className="w-6 h-6 inline-block mr-2" />
-                      View our menu
+                      {t("viweMenu")}
                     </div>
                     <div className="flex items-center border rounded-md bg-red-600 text-white w-full uppercase px-2 py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
                       <GlobeAltIcon className="w-6 h-6 inline-block mr-2" />
-                      Visit us
+                      {t("visitUs")}
                     </div>
                   </div>
                 </div>
               </div>
               <div className="bg-white shadow border py-8 px-3">
-                <div className="font-semibold text-2xl">Hours</div>
+                <div className="font-semibold text-2xl">{t("hours")}</div>
                 <div className="flex flex-col gap-4">
                   {accordions.map((accordion, index) => {
                     if (accordion.hours) {
@@ -313,7 +308,7 @@ const Location: Template<TemplateRenderProps> = ({
           <>
             <div className="w-full bg-white py-14">
               <div className="text-4xl mx-auto text-center font-bold  mb-8 ">
-                Menu items
+                {t("menuItems")}
               </div>
               <ImageCarousel data={photoGallery} />
             </div>
@@ -334,7 +329,7 @@ const Location: Template<TemplateRenderProps> = ({
         {c_storePromos && (
           <div className="bg-white py-14 px-8">
             <div className="text-4xl mx-auto text-center font-bold  mb-8 ">
-              Promotions
+              {t("promos")}
             </div>
             <div className=" flex gap-4 justify-center">
               {c_storePromos.map((item, index) => (
@@ -367,7 +362,7 @@ const Location: Template<TemplateRenderProps> = ({
         {c_locationJobs && (
           <div className="centered-container ">
             <div className="text-4xl mx-auto text-center font-bold mb-8 ">
-              Jobs
+              {t("jobs")}
             </div>
             {c_locationJobs.map((item: any, index: any) => (
               <div key={index}>
@@ -379,7 +374,7 @@ const Location: Template<TemplateRenderProps> = ({
         {c_nearbyStores && (
           <div className="w-full bg-white py-14">
             <div className="text-4xl mx-auto text-center font-bold  mb-8">
-              Nearby Locations
+              {t("nearBy")}
             </div>
             <Carousel data={c_nearbyStores} slidesToShow={4} />
           </div>
