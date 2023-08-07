@@ -120,8 +120,7 @@ const Home: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { name, c_coupons, c_primaryCTA, c_secondaryCTA } = document;
-  const { t, i18n } = useTranslation();
-
+  const { t } = useTranslation();
   return (
     <>
       <PageLayout>

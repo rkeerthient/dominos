@@ -87,7 +87,7 @@ export const config: TemplateConfig = {
     },
     // The entity language profiles that documents will be generated for.
     localization: {
-      locales: ["en"],
+      locales: ["en", "es"],
       primary: false,
     },
   },
@@ -100,11 +100,7 @@ export const config: TemplateConfig = {
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.slug
-    ? document.slug
-    : `${document.locale}/${document.address.region}/${document.address.city}/${
-        document.address.line1
-      }-${document.id.toString()}`;
+  return document.slug;
 };
 
 /**
