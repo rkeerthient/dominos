@@ -29,7 +29,9 @@ const Coupon = ({ data }: any) => {
                 " rgb(227, 24, 55) -1px 1px 0px, rgb(227, 24, 55) -2px 2px 0px, rgb(227, 24, 55) -3px 3px 0px, rgb(227, 24, 55) -4px 4px 0px, rgb(227, 24, 55) -5px 5px 0px, rgb(227, 24, 55) -6px 6px 0px, rgb(227, 24, 55) -7px 7px 0px",
             }}
           >
-            <span className="text-3xl">$</span>
+            <span className="text-3xl">
+              {price.currencyCode === "USD" ? "$" : "SR"}
+            </span>
             <span className="flex gap-1 items-start">
               {price.value.split(".")[0]}
               <span className="text-3xl flex flex-col justify-normal !space-y-2">
