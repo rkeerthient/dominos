@@ -128,7 +128,7 @@ const Home: Template<TemplateRenderProps> = ({
   const { name, c_coupons, c_primaryCTA, c_secondaryCTA, meta } = document;
   useEffect(() => {
     const lng = navigator.language;
-    i18n.changeLanguage(lng);
+    i18n.changeLanguage(meta.locale);
   }, []);
   return (
     <>
