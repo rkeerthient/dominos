@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .centered-container {
-  @apply px-5 md:px-14 max-w-screen-2xl py-14 mx-auto;
+  @apply px-14 max-w-screen-2xl py-14 mx-auto;
 }
 
 .section {

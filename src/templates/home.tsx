@@ -23,8 +23,9 @@ import PageLayout from "../components/page-layout";
 import "../index.css";
 import Coupon from "../components/Coupon";
 import { useTranslation } from "react-i18next";
-import i18next from "../components/i18n";
 import { useEffect } from "react";
+import { Image } from "@yext/pages/components";
+import { BiFoodMenu } from "react-icons/bi";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -43,6 +44,7 @@ export const config: TemplateConfig = {
       "c_coupons.name",
       "c_coupons.primaryPhoto",
       "c_coupons.description",
+      "c_menuBGImage",
       "c_coupons.c_primaryCTA",
       "c_coupons.price",
       "c_coupons.c_tag",
@@ -124,7 +126,8 @@ const Home: Template<TemplateRenderProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
 
-  const { name, c_coupons, c_primaryCTA, c_secondaryCTA, meta } = document;
+  const { name, c_coupons, c_menuBGImage, c_primaryCTA, c_secondaryCTA, meta } =
+    document;
   useEffect(() => {
     const lng = navigator.language;
     i18n.changeLanguage(meta.locale);
@@ -151,6 +154,37 @@ const Home: Template<TemplateRenderProps> = ({
               </div>
             );
           })}
+        </div>
+        <div className="centered-container">
+          <div className="text-4xl mx-auto text-center font-bold  mb-8 capitalize text-gray-400">
+            {t("browseMenu")}
+          </div>
+          <div className="h-[300px] relative isolate overflow-hidden py-8 text-white  ">
+            <div className="absolute inset-0 z-10 bg-grsay-700 opacity-60"></div>
+
+            <Image
+              image={c_menuBGImage}
+              className="absolute inset-0 z-0 h-full w-full object-cover object-center mx-auto"
+              layout="aspect"
+            ></Image>
+            <div
+              className="mr-auto my-auto lg:px-8 z-20 space-y-8 flex flex-col w-fit justify-between"
+              style={{
+                marginTop: " 5%",
+                marginLeft: "4%",
+                filter: "drop-shadow(rgb(0, 0, 0) 0px 0.05em 0.075em)",
+              }}
+            >
+              <div className="mr-auto max-w-2xl lg:mx-0  w-full ">
+                <h2 className="text-4xl font-bold tracking-tight mx-auto flex justify-center">
+                  <BiFoodMenu style={{ width: "75px", height: "75px" }} />
+                </h2>
+              </div>
+              <div className="flex items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4 py-2 ml-auto hover:cursor-pointer hover:bg-red-900 ">
+                {t("viewFullMenu")}
+              </div>
+            </div>
+          </div>
         </div>
       </PageLayout>
     </>

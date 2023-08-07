@@ -26,6 +26,8 @@ i18n
           viweMenu: "View our menu",
           visitUs: "Visit us",
           hours: "Hours",
+          viewFullMenu: "View full menu",
+          browseMenu: "Browse our menu",
         },
       },
       es: {
@@ -41,6 +43,8 @@ i18n
           viweMenu: "ver nuestro menú",
           visitUs: "Visítanos",
           hours: "Horas",
+          viewFullMenu: "Ver menú completo",
+          browseMenu: "Navega por nuestro menú",
         },
       },
     },

@@ -37,9 +37,11 @@ export interface C_secondaryCTA {
 }
 
 export default interface Ce_home {
+	slug?: string,
 	name: string,
 	c_coupons?: EntityReference[],
 	c_footer?: Image,
+	c_menuBGImage?: Image,
 	c_primaryCTA?: C_primaryCTA,
 	c_secondaryCTA?: C_secondaryCTA,
 	id: string,

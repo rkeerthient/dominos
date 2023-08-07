@@ -1,8 +1,7 @@
 import * as React from "react";
 
 const HoursText = (props: any) => {
-  console.log(props.type + "---");
-
+ 
   // const { hours, deliveryHours, takeoutHours, timezone } = document;
   let { timezone } = props.document;
   let hours = props.document[props.type];
