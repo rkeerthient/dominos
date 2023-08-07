@@ -26,7 +26,7 @@ const links: Link[] = [
   },
   {
     label: "LOCATIONS",
-    url: "/root.html",
+    url: "/locations",
   },
   {
     label: "REWARDS",
