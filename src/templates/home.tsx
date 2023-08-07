@@ -131,7 +131,10 @@ const Home: Template<TemplateRenderProps> = ({
       <PageLayout>
         <div className="centered-container !max-w-screen-lg">
           <div className="flex justify-center px-8 font-bold uppercase">
-            <div className="text-3xl">{i18next.t("startOrder")}</div>
+            <div className="text-3xl">
+              {i18next.t("startOrder")}
+              {t("startOrder")}
+            </div>
             <div className="flex  items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
               {c_primaryCTA.label}
             </div>
