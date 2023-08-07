@@ -28,6 +28,10 @@ i18n
           hours: "Hours",
           viewFullMenu: "View full menu",
           browseMenu: "Browse our menu",
+          dirTitle: "Dominos Locations Directory",
+          locInUS: "Locations in US",
+          bannerText:
+            "Domino's, a global pizza chain, offers a diverse menu with quality ingredients and customizable options. Known for fast delivery and convenient online ordering, enjoy delicious pizzas and sides at their locations worldwide.",
         },
       },
       es: {
@@ -45,6 +49,10 @@ i18n
           hours: "Horas",
           viewFullMenu: "Ver menú completo",
           browseMenu: "Navega por nuestro menú",
+          dirTitle: "Dominos Directorio De Ubicaciones",
+          locInUS: "tiendas en US",
+          bannerText:
+            "Domino's, una cadena mundial de pizzerías, ofrece un menú diverso con ingredientes de calidad y opciones personalizables. Conocido por su entrega rápida y pedidos en línea convenientes, disfrute de deliciosas pizzas y guarniciones en sus ubicaciones en todo el mundo.",
         },
       },
     },

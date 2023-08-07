@@ -43,6 +43,7 @@ import HoursText from "../components/HoursText";
 import { useTranslation } from "react-i18next";
 import i18next from "../components/i18n";
 import { useEffect } from "react";
+import BreadCrumbs from "../components/BreadCrumbs";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -63,6 +64,7 @@ export const config: TemplateConfig = {
       "hours",
       "slug",
       "timezone",
+      "featuredMessage",
       "photoGallery",
       "geocodedCoordinate",
       "deliveryHours",
@@ -83,6 +85,15 @@ export const config: TemplateConfig = {
       "c_nearbyStores.mainPhone",
       "c_nearbyStores.address",
       "c_nearbyStores.logo",
+      "dm_directoryParents.meta",
+      "dm_directoryParents.name",
+      "dm_directoryParents.slug",
+      "dm_directoryParents.dm_directoryChildren.name",
+      "dm_directoryParents.dm_directoryChildren.address",
+      "dm_directoryParents.dm_directoryChildren.hours",
+      "dm_directoryParents.dm_directoryChildren.slug",
+      "dm_directoryParents.dm_directoryChildren.timezone",
+      "dm_directoryParents.dm_directoryChildren.mainPhone",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -150,7 +161,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * components any way you'd like as long as it lives in the src folder (though you should not put
  * them in the src/templates folder as this is specific for true template files).
  */
-const Location: Template<TemplateRenderProps> = ({ document }) => {
+const Location: Template<TemplateRenderProps> = ({
+  document,
+  relativePrefixToRoot,
+}) => {
   const {
     name,
     address,
@@ -159,13 +173,16 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
     geocodedCoordinate,
     pickupAndDeliveryServices,
     deliveryHours,
+    featuredMessage,
     takeoutHours,
     c_locationJobs,
     c_relatedFAQs,
     c_storePromos,
     meta,
+    description,
     photoGallery,
     c_nearbyStores,
+    dm_directoryParents,
   } = document;
 
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -192,6 +209,13 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
       <PageLayout>
+        <div className="px-12">
+          <BreadCrumbs
+            name={name}
+            parents={dm_directoryParents}
+            baseUrl={relativePrefixToRoot}
+          ></BreadCrumbs>
+        </div>
         {geocodedCoordinate && (
           <StaticMap
             latitude={geocodedCoordinate.latitude}
@@ -201,7 +225,15 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
         <div className="centered-container ">
           <div className="section">
             <div className="grid grid-cols-3 justify-between w-full gap-8 -mt-48 -mb-24">
-              <div className="bg-white shadow leading-10 border h-fit ">
+              <div className="bg-white shadow leading-10 border h-fit container">
+                <nav
+                  className="navigation text-sm text-white"
+                  style={{ background: "#006491" }}
+                >
+                  <a href={featuredMessage.url}>
+                    {featuredMessage.description}
+                  </a>
+                </nav>
                 <div className=" flex flex-col p-8 justify-between gap-y-2">
                   <h1 className="font-semibold text-2xl">{name}</h1>
                   <div className="leading-loose items-baseline flex  gap-2">
@@ -371,9 +403,25 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
             ))}
           </div>
         )}
+        <div className="flex bg-white gap-6">
+          <div className="w-1/2">
+            <img
+              src="https://www.chutegerdeman.com/wp-content/uploads/2017/07/Dominos_1200_1.jpg"
+              alt=""
+              className="h-full"
+            />
+          </div>
+
+          <div className="w-1/2 text-xl my-auto">
+            <div className="w-3/4 flex flex-col gap-3 ">
+              <div className="font-bold text-3xl">About us</div>
+              <div>{description}</div>
+            </div>
+          </div>
+        </div>
         {c_nearbyStores && (
-          <div className="w-full bg-white py-14">
-            <div className="text-4xl mx-auto text-center font-bold  mb-8">
+          <div className="centered-container ">
+            <div className="text-4xl mx-auto text-center font-bold mb-8">
               {t("nearBy")}
             </div>
             <Carousel data={c_nearbyStores} slidesToShow={4} />

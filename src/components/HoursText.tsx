@@ -1,9 +1,10 @@
 import * as React from "react";
 
 const HoursText = (props: any) => {
- 
   // const { hours, deliveryHours, takeoutHours, timezone } = document;
   let { timezone } = props.document;
+  console.log(props.type);
+
   let hours = props.document[props.type];
   const getStatus = (currentDay: any, currentTime: any, hours: any) => {
     if (hours[currentDay.toLowerCase()].isClosed)

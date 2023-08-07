@@ -1,46 +1,37 @@
 import * as React from "react";
-
-export type Address = {
-  line1: string;
-  city: string;
-  region: string;
-  postalCode: string;
-  countryCode: string;
-};
+import { useTranslation } from "react-i18next";
 
 type Banner = {
-  name?: string;
-  address?: Address;
-  openTime?: string;
+  text?: string;
   children?: React.ReactNode;
 };
 
-const renderPrettyAddress = (address?: Address) => {
-  return (
-    <>
-      {address && (
-        <span>
-          {address.line1} in {address.city}, {address.region}
-        </span>
-      )}
-    </>
-  );
-};
-
 const Banner = (props: Banner) => {
-  const { name, address, children } = props;
+  const { text, children } = props;
+  const { t, i18n } = useTranslation();
 
   return (
     <>
-      <div className="bg-red-900 text-5xl font-bold text-white p-10 flex items-center justify-center flex-row space-x-20 w-full">
-        <div className="flex-col space-y-10 text-center">
-          <div>{name}</div>
-          <div>{renderPrettyAddress(address)}</div>
+      <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 text-white">
+        <div className="absolute inset-0 z-10 bg-black opacity-60"></div>
+
+        <img
+          src={
+            "https://images.deliveryhero.io/image/fd-ph/LH/i8kf-hero.jpg?width=2000&height=500&quality=45"
+          }
+          className="absolute inset-0 z-0 h-full w-full object-cover object-right md:object-center"
+        ></img>
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-20 flex justify-center">
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-6xl text-center">
+              Domino's
+            </h2>
+            <p className="mt-6 text-lg leading-8">{t("bannerText")}</p>
+          </div>
         </div>
-        {children}
       </div>
     </>
   );
 };
-
 export default Banner;
