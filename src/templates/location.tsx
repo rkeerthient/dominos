@@ -226,14 +226,16 @@ const Location: Template<TemplateRenderProps> = ({
           <div className="section">
             <div className="grid grid-cols-3 justify-between w-full gap-8 -mt-48 -mb-24">
               <div className="bg-white shadow leading-10 border h-fit container">
-                <nav
-                  className="navigation text-sm text-white"
-                  style={{ background: "#006491" }}
-                >
-                  <a href={featuredMessage.url}>
-                    {featuredMessage.description}
-                  </a>
-                </nav>
+                {featuredMessage && featuredMessage.url && (
+                  <nav
+                    className="navigation text-sm text-white"
+                    style={{ background: "#006491" }}
+                  >
+                    <a href={featuredMessage.url}>
+                      {featuredMessage.description}
+                    </a>
+                  </nav>
+                )}
                 <div className=" flex flex-col p-8 justify-between gap-y-2">
                   <h1 className="font-semibold text-2xl">{name}</h1>
 
