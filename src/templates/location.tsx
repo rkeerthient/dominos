@@ -41,6 +41,8 @@ import { LiaMapMarkerSolid } from "react-icons/lia";
 import { BiFoodMenu } from "react-icons/bi";
 import HoursText from "../components/HoursText";
 import { useTranslation } from "react-i18next";
+import i18next from "../components/i18n";
+
 /**
  * Required when Knowledge Graph data is used for a template.
  */
