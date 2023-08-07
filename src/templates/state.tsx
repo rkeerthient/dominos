@@ -79,6 +79,8 @@ const State: Template<TemplateRenderProps> = ({
 }) => {
   const { name, description, dm_directoryParents, dm_directoryChildren, meta } =
     document;
+  console.log(dm_directoryChildren.length);
+
   const { t, i18n } = useTranslation();
   React.useEffect(() => {
     i18n.changeLanguage(meta.locale);
@@ -129,7 +131,15 @@ const State: Template<TemplateRenderProps> = ({
                 }${" "}
                 stores in ${name}`}
               />
-              <p className="text-2xl text-center">{updatedDescription}</p>
+              <p className="text-2xl text-center">{`${
+                dm_directoryChildren &&
+                dm_directoryChildren.flat().reduce(function (a: any, b: any) {
+                  return parseInt(b["dm_directoryChildrenCount"]) == null
+                    ? a
+                    : a + parseInt(b["dm_directoryChildrenCount"]);
+                }, 0)
+              }${" "}
+                stores in ${name}`}</p>
             </div>
             <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
               {childrenDivs}

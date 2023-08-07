@@ -144,6 +144,12 @@ const City: Template<TemplateRenderProps> = ({
                 text={`${dm_directoryChildren.length} stores in ${name},${" "}
               ${slug.split("/")[0].toUpperCase()}`}
               />
+
+              <p className="text-2xl text-center">{`${
+                dm_directoryChildren.length
+              }${" "}
+                stores found in ${name}`}</p>
+
               <p className="text-2xl text-center">{description}</p>
             </div>
             <div className="flex flex-col gap-y-5">{childrenDivs}</div>

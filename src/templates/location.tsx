@@ -236,6 +236,7 @@ const Location: Template<TemplateRenderProps> = ({
                 </nav>
                 <div className=" flex flex-col p-8 justify-between gap-y-2">
                   <h1 className="font-semibold text-2xl">{name}</h1>
+
                   <div className="leading-loose items-baseline flex  gap-2">
                     <MapIcon className="h-4 w-4" />
                     <div className="text-lg flex flex-col gap-1  ">

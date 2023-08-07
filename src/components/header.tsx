@@ -7,6 +7,7 @@ type Link = {
 };
 
 const links: Link[] = [
+  { label: "Home", url: "/en/5923211330787565604" },
   {
     label: "order online",
     url: "#",
@@ -25,7 +26,7 @@ const links: Link[] = [
   },
   {
     label: "LOCATIONS",
-    url: "#",
+    url: "/root.html",
   },
   {
     label: "REWARDS",
@@ -35,15 +36,11 @@ const links: Link[] = [
 
 const Header = () => {
   const linkDoms = links.map((link) => (
-    <div
-      key={link.label}
-      className="hover:bg-[#00587c] py-6 px-4 hover:cursor-pointer"
-    >
+    <div key={link.label} className="">
       <a
         href={link.url}
-        target="_blank"
         rel="noreferrer"
-        className="uppercase "
+        className="uppercase hover:bg-[#00587c] py-4 px-4 hover:cursor-pointer"
       >
         {link.label}
       </a>

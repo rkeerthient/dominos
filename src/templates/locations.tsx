@@ -16,6 +16,7 @@ import { useState } from "react";
 import PageLayout from "../components/page-layout";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import LocationPage from "../components/locationPage";
 
 export const config: TemplateConfig = {
   stream: {
@@ -118,7 +119,7 @@ const Index: Template<TemplateRenderProps> = ({
           </ul>
           {isDir ? (
             <>
-              <BreadCrumbs name="Home" baseUrl={relativePrefixToRoot} />
+              {/* <BreadCrumbs name="Home" baseUrl={relativePrefixToRoot} /> */}
               <div className="section space-y-6 px-10">
                 <h1 className="text-left text-2xl">{t("dirTitle")}</h1>
                 <p className="text-normal font-semibold text-left">
@@ -138,7 +139,9 @@ const Index: Template<TemplateRenderProps> = ({
               </div>
             </>
           ) : (
-            <div className="mt-6">Hi</div>
+            <div className="mt-6">
+              <LocationPage />
+            </div>
           )}
         </div>
       </PageLayout>

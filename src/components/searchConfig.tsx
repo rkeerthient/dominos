@@ -1,8 +1,8 @@
 // import { CloudRegion, Environment } from "@yext/search-headless-react";
 
 const searchConfig = {
-  apiKey: import.meta.env.YEXT_PUBLIC_API_KEY,
-  experienceKey: import.meta.env.YEXT_PUBLIC_EXP_KEY,
+  apiKey: "abf927d0ffaa59060bf391ecf0912128",
+  experienceKey: "answers-starter",
   locale: "en",
   // verticalKey: "restaurants",
   // cloudRegion: CloudRegion.US,

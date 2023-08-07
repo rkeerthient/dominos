@@ -135,17 +135,27 @@ const Home: Template<TemplateRenderProps> = ({
   return (
     <>
       <PageLayout>
-        <div className="centered-container !max-w-screen-lg">
-          <div className="flex justify-center px-8 font-bold uppercase">
-            <div className="text-3xl">{t("startOrder")}</div>
-            <div className="flex  items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
-              {c_primaryCTA.label}
-            </div>
-            <div className="flex  items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
-              {c_secondaryCTA.label}
+        <div className="centered-container !max-w-screen-lg !pb-0">
+          <div className="relative">
+            <div className="flex items-center">
+              <div className="flex-1 h-0.5 bg-gray-300"></div>
+              <div className="px-4">
+                <div className="flex justify-center px-8 font-bold uppercase gap-4">
+                  <div className="text-3xl">{t("startOrder")}</div>
+
+                  <div className="flex  items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
+                    {c_primaryCTA.label}
+                  </div>
+                  <div className="flex  items-center border rounded-md bg-red-600 text-white w-fit uppercase px-4  py-2 mx-auto hover:cursor-pointer hover:bg-red-900">
+                    {c_secondaryCTA.label}
+                  </div>
+                </div>
+              </div>
+              <div className="flex-1 h-0.5 bg-gray-300"></div>
             </div>
           </div>
         </div>
+
         <div className="centered-container  grid grid-cols-2 gap-3 !max-w-screen-xl">
           {c_coupons.map((item, index) => {
             return (
