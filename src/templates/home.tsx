@@ -53,7 +53,7 @@ export const config: TemplateConfig = {
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityIds: ["5923211330787565604"],
+      entityIds: ["5923211330787565604", "5747490623663977224"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
