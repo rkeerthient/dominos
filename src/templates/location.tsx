@@ -40,6 +40,8 @@ import {
 import { LiaMapMarkerSolid } from "react-icons/lia";
 import { BiFoodMenu } from "react-icons/bi";
 import HoursText from "../components/HoursText";
+import { useTranslation } from "react-i18next";
+import "../components/i18n";
 /**
  * Required when Knowledge Graph data is used for a template.
  */
@@ -190,6 +192,7 @@ const Location: Template<TemplateRenderProps> = ({
       type: "takeoutHours",
     },
   ];
+  const { t } = useTranslation();
 
   const handleAccordionClick = (index: any) => {
     setActiveAccordion((prevIndex) => (prevIndex === index ? null : index));
@@ -322,7 +325,7 @@ const Location: Template<TemplateRenderProps> = ({
         {c_relatedFAQs && (
           <div className="centered-container">
             <div className="text-4xl mx-auto text-center font-bold  mb-8 ">
-              Frequently Asked Questions
+              {t("faqs")}
             </div>
             {c_relatedFAQs.map((item: any, index: any) => (
               <div key={index}>
