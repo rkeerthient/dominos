@@ -19,6 +19,7 @@ i18n
           promos: "Promotions",
           jobs: "Jobs",
           nearBy: "Nearby Locations",
+          startOrder: "START YOUR ORDER",
         },
       },
       es: {
@@ -28,6 +29,7 @@ i18n
           promos: "Promociones",
           jobs: "Trabajos",
           nearBy: "Ubicaciones cercanas",
+          startOrder: "EMPIEZA TU PEDIDO",
         },
       },
     },
